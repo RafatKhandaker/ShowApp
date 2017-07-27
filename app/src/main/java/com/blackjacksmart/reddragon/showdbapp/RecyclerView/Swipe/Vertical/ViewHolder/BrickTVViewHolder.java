@@ -47,7 +47,7 @@ public class BrickTVViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(){
-        detailsTextView.setText("Brick TV");
+        detailsTextView.setText("Brick TV" +getAdapterPosition());
     }
 
     public Context getContext(){ return brickHorizontalRecycler.getContext(); }

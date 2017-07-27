@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.blackjacksmart.reddragon.showdbapp.R;
-import com.blackjacksmart.reddragon.showdbapp.RecyclerView.Swipe.Vertical.ViewHolder.BrickTVViewHolder;
+import com.blackjacksmart.reddragon.showdbapp.RecyclerView.Swipe.Vertical.Adapter.Horizontal.BrickCardAdapter.BrickCardView.BrickCardViewHolder;
 
 /**
  * Created by RedDragon on 1/2/17.
@@ -15,7 +15,7 @@ public class TopHorrorBrickTv extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new BrickTVViewHolder(LayoutInflater.from(parent.getContext())
+        return new BrickCardViewHolder(LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_holder_layout, null));
     }
 

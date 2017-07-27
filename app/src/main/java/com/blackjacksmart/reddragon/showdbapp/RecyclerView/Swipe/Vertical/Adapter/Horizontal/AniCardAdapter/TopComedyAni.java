@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.blackjacksmart.reddragon.showdbapp.R;
-import com.blackjacksmart.reddragon.showdbapp.RecyclerView.Swipe.Vertical.ViewHolder.AniChannelViewHolder;
+import com.blackjacksmart.reddragon.showdbapp.RecyclerView.Swipe.Vertical.Adapter.Horizontal.AniCardAdapter.AniCardView.AniCardViewHolder;
 
 /**
  * Created by RedDragon on 1/2/17.
@@ -18,7 +18,7 @@ public class TopComedyAni extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.card_holder_layout, null);
-        return new AniChannelViewHolder(view);
+        return new AniCardViewHolder(view);
     }
 
     @Override

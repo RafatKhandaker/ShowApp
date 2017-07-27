@@ -29,6 +29,7 @@ public class AniAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         int itemType = getItemViewType(position);
 
+
         switch(itemType) {
 
             case 0:
@@ -106,4 +107,5 @@ public class AniAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() { return 4; }
+
 }

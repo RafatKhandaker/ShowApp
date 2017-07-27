@@ -47,7 +47,7 @@ public class MovieHomieViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(){
-        detailsTextView.setText("Movie Homie");
+        detailsTextView.setText("Movie Homie" +getAdapterPosition());
     }
 
     public Context getContext(){ return movieHorizontalRecycler.getContext(); }

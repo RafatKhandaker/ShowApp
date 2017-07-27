@@ -24,7 +24,7 @@ public class AniChannelViewHolder extends RecyclerView.ViewHolder {
 @Nullable @BindView(R.id.detail_textview) TextView detailsTextView;
 @Nullable @BindView(R.id.ani_horizontal_recycler) public RecyclerView aniHorizontalRecycler;
 
-    private int horizontalAdapterPosition;
+    private int vAdapterPosition;
 
     public AniChannelViewHolder(View itemView) {
         super(itemView);
@@ -35,9 +35,9 @@ public class AniChannelViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 positionClicked = ANI_CHANNEL;
-                horizontalAdapterPosition = getAdapterPosition() +1;
+                vAdapterPosition = getAdapterPosition() +1;
 
-                Snackbar.make(v,"Ani-Channel position " +horizontalAdapterPosition,
+                Snackbar.make(v,"Ani-Channel position " +vAdapterPosition,
                         Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
@@ -48,10 +48,11 @@ public class AniChannelViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(){
-        detailsTextView.setText("Ani Channel");
+        detailsTextView.setText("Ani Channel" +getAdapterPosition());
     }
 
     public Context getContext(){ return aniHorizontalRecycler.getContext(); }
 
+    public int getVPosition(){ return vAdapterPosition; }
 
 }

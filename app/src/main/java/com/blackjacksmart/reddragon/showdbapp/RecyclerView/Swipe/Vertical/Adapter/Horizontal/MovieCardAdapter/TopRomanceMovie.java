@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.blackjacksmart.reddragon.showdbapp.R;
+import com.blackjacksmart.reddragon.showdbapp.RecyclerView.Swipe.Vertical.Adapter.Horizontal.MovieCardAdapter.MovieCardView.MovieCardViewHolder;
 import com.blackjacksmart.reddragon.showdbapp.RecyclerView.Swipe.Vertical.ViewHolder.MovieHomieViewHolder;
 
 /**
@@ -15,7 +16,7 @@ public class TopRomanceMovie extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MovieHomieViewHolder(LayoutInflater.from(parent.getContext())
+        return new MovieCardViewHolder(LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_holder_layout, null));
     }
 
