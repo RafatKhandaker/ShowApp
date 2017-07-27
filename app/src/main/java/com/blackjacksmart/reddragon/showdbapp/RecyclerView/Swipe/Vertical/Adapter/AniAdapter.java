@@ -21,7 +21,7 @@ public class AniAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new AniChannelViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.ani_horizontal_recycler, null));
+                .inflate(R.layout.ani_holder_layout, null));
     }
 
     @Override

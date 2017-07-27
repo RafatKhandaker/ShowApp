@@ -1,19 +1,21 @@
 package com.blackjacksmart.reddragon.showdbapp.RecyclerView.Swipe;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
-import static com.blackjacksmart.reddragon.showdbapp.MainActivity.bundle;
+import static com.blackjacksmart.reddragon.showdbapp.MainActivity.ANI_CHANNEL;
+import static com.blackjacksmart.reddragon.showdbapp.MainActivity.BRICK_TV;
+import static com.blackjacksmart.reddragon.showdbapp.MainActivity.MOVIE_HOMIE;
+import static com.blackjacksmart.reddragon.showdbapp.MainActivity.swipeAdapter;
 
 /**
  * Created by RedDragon on 12/31/16.
  */
 
-public class SwipeAdapter extends FragmentPagerAdapter {
 
+public class SwipeAdapter extends FragmentPagerAdapter {
 //--------------------------------------Main Constructor--------------------------------------------
 
     public SwipeAdapter(FragmentManager fm) { super(fm); }
@@ -22,13 +24,18 @@ public class SwipeAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return new HorizontalSwipeFragment();
+        System.out.println("get Item Position: " +position );
+
+
+        if(position == (ANI_CHANNEL)){ return new AniSwipeFragment();}
+        if(position == (BRICK_TV)){ return new BrickSwipeFragment();}
+        if(position == (MOVIE_HOMIE)){ return new MovieSwipeFragment();}
+
+        return new AniSwipeFragment();
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        bundle = new Bundle();
-        bundle.putInt("count", position);
+    public Object instantiateItem(ViewGroup container, int position){
         return super.instantiateItem(container, position);
     }
 

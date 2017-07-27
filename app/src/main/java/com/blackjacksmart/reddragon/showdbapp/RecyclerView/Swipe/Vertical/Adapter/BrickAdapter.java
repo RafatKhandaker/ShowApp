@@ -21,7 +21,7 @@ public class BrickAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new BrickTVViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.brick_horizontal_recycler, null));
+                .inflate(R.layout.brick_holder_layout, null));
     }
 
     @Override

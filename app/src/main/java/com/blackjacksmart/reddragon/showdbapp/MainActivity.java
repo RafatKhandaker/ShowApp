@@ -15,29 +15,30 @@ import butterknife.ButterKnife;
 public class MainActivity extends FragmentActivity {
 
 public static final int ANI_CHANNEL = 0, BRICK_TV = 1, MOVIE_HOMIE = 2;
+public static SwipeAdapter swipeAdapter;
 public static int positionClicked;
 public static int swipePosition;
-public static Bundle bundle;
+Bundle bundle;
+
 
 
 //-----------------------------------Initiate Variables---------------------------------------------
 
 @BindView(R.id.toolbar) Toolbar toolBar;
-@BindView(R.id.view_pager)ViewPager viewPager;
+@BindView(R.id.view_pager) public ViewPager viewPager;
 @BindView(R.id.button1) Button aniButton;
 @BindView(R.id.button2) Button brickButton;
 @BindView(R.id.button3) Button movieButton;
 
- SwipeAdapter swipeAdapter;
 
 //---------------------------------------Life Cycle-------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
-
         initiateViewPager();
 
         initAniButtonClick();
@@ -56,30 +57,30 @@ public static Bundle bundle;
 //------------------------------------Button CLick Listener-----------------------------------------
 
     private void initAniButtonClick(){
-        swipePosition = 0;
         aniButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(0);
+                swipePosition = ANI_CHANNEL;
+                viewPager.setCurrentItem(swipePosition);
             }
         });
     }
 
     private void initBrickButtonClick(){
-        swipePosition = 1;
         brickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(1);
+                swipePosition = BRICK_TV;
+                viewPager.setCurrentItem(swipePosition);
             }});
     }
 
     private void initMovieButtonClick(){
-        swipePosition = 2;
         movieButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(2);
+                swipePosition = MOVIE_HOMIE;
+                viewPager.setCurrentItem(swipePosition);
             }
         });
     }
@@ -90,13 +91,39 @@ public static Bundle bundle;
         viewPager.setVisibility(View.GONE);
         swipeAdapter = new SwipeAdapter(getSupportFragmentManager());
                 viewPager.setAdapter(swipeAdapter);
-                viewPager.setCurrentItem(0);
+                viewPager.setCurrentItem(ANI_CHANNEL);
+                viewPager.setOffscreenPageLimit(0);
                 viewPager.setVisibility(View.VISIBLE);
+                viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                        System.out.println(" position: " +position + "positionOffset: " +positionOffset+ "positionPix: " +positionOffsetPixels);
+                        swipePosition = position;
+                        swipeAdapter.getItem(swipePosition);
+
+                    }
+
+                    @Override
+                    public void onPageSelected(int position) {
+                      //      System.out.println(" position onPageSelected: " +position);
+
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
+                    //    System.out.println(" on page state change: " +state);
+                    //    swipePosition = state;
+                    //    swipeAdapter.getItem(state);
+
+                    }
+                });
     }
 
 //--------------------------------------------------------------------------------------------------
 
     public MainActivity() {}
+
+    public ViewPager getViewPager(){ return viewPager; }
 
 //-----------------------------------------Retrofit-------------------------------------------------
 
